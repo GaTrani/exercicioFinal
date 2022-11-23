@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Gerenciar/Gerenciar.iml" filepath="$PROJECT_DIR$/Gerenciar/Gerenciar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/exercicioFinal.iml" filepath="$PROJECT_DIR$/.idea/exercicioFinal.iml" />
+    </modules>
+  </component>
+</project>
