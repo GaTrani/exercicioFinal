@@ -1,14 +1,17 @@
+/*
+    b) Para fornecedores: O campo código não pode ser negativo e o campo estado deve conter
+        apenas dois caracteres em maiúsculos.
+    c) Sobrescreva o método toString() para cada Classe, de maneiras que, quando invocados
+        apresentem as informações sobre o respectivo objeto.
+    d) Fornecedor deve possui dois construtores: o default e outro cuja cidade seja definida por
+        padrão: “Mogi Mirim” e o Estado: “SP”.
+ */
 
-//b) Para fornecedores: O campo código não pode ser negativo e o campo estado deve conter
-//apenas dois caracteres em maiúsculos.
-//c) Sobrescreva o método toString() para cada Classe, de maneiras que, quando invocados
-//apresentem as informações sobre o respectivo objeto.
-//d) Fornecedor deve possui dois construtores: o default e outro cuja cidade seja definida por
-//padrão: “Mogi Mirim” e o Estado: “SP”.
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fornecedor {
-
+    public static List<Fornecedor> fornecedores= new ArrayList<>();
     private int codigo;
     private String razaoSocial;
     private String endereco;
@@ -21,6 +24,9 @@ public class Fornecedor {
     }
 
     public void setCodigo(int codigo) {
+        if(codigo < 0){
+            throw new IllegalArgumentException("Valor do codigo deve ser positivo");
+        }
         this.codigo = codigo;
     }
 
@@ -53,7 +59,10 @@ public class Fornecedor {
     }
 
     public void setEstado(String estado) {
-        this.estado = estado;
+        if(estado.length() != 2){
+            throw new IllegalArgumentException("O UF deve conter 2 caracteres.");
+        }
+        this.estado = estado.toUpperCase();
     }
 
     public Contato getContato() {
@@ -62,6 +71,13 @@ public class Fornecedor {
 
     public void setContato(Contato contato) {
         this.contato = contato;
+    }
+
+    public void listarFornecedores(){
+        System.out.println("listando");
+        for (Fornecedor f : fornecedores) {
+            System.out.println(f);
+        }
     }
 
     @Override

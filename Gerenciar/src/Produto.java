@@ -1,7 +1,8 @@
-
-//a) Para produtos: Os campos: código, quantidade e preço não aceitam valores negativos.
-//c) Sobrescreva o método toString() para cada Classe, de maneiras que, quando invocados
-//apresentem as informações sobre o respectivo objeto.
+/*
+    a) Para produtos: Os campos: código, quantidade e preço não aceitam valores negativos.
+    c) Sobrescreva o método toString() para cada Classe, de maneiras que, quando invocados
+    apresentem as informações sobre o respectivo objeto.
+*/
 
 public class Produto {
 
@@ -17,6 +18,9 @@ public class Produto {
     }
 
     public void setCodigo(int codigo) {
+        if(codigo < 0){
+            throw new IllegalArgumentException("Valor do codigo deve ser positivo");
+        }
         this.codigo = codigo;
     }
 
@@ -33,6 +37,9 @@ public class Produto {
     }
 
     public void setPreco(double preco) {
+        if(preco < 0){
+            throw new IllegalArgumentException("Valor do preco deve ser positivo");
+        }
         this.preco = preco;
     }
 
@@ -41,6 +48,9 @@ public class Produto {
     }
 
     public void setQuantidade(int quantidade) {
+        if(quantidade < 0){
+            throw new IllegalArgumentException("Valor da quantidade deve ser positivo");
+        }
         this.quantidade = quantidade;
     }
 

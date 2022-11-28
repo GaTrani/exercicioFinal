@@ -1,8 +1,14 @@
+import javax.print.DocFlavor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GerenciarProduto {
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
 
         int op = 0;
         System.out.println("Cesta de Compras");
@@ -16,7 +22,19 @@ public class GerenciarProduto {
             op = Integer.parseInt(sc.nextLine());
             switch(op){
                 case 1:
-                    System.out.println("Caso 1");
+                    System.out.println("Digite o Estado do fornecedor [UF]: ");
+                    String uf =  sc.nextLine();
+                    Fornecedor f1 = new Fornecedor();
+                    f1.setEstado(uf);
+                    Fornecedor.fornecedores.add(f1);
+
+                    //codigo;
+                    //razaoSocial;
+                    //endereco;
+                    //cidade;
+                    //estado;
+                    //contato;
+                    f1.listarFornecedores();
                     break;
                 case 2:
                     System.out.println("Caso 2");
