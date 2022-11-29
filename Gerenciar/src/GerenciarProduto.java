@@ -6,9 +6,12 @@ import java.util.Scanner;
 public class GerenciarProduto {
 
 
+
     public static void main(String[] args) {
+        GerenciarProduto gp = new GerenciarProduto();
         Scanner sc = new Scanner(System.in);
 
+        List<Contato> ListaProdutos = new ArrayList<>();
 
         int op = 0;
         System.out.println("Cesta de Compras");
@@ -38,9 +41,48 @@ public class GerenciarProduto {
                     System.out.println("Digite o Estado do fornecedor [UF]: ");
                     String uf =  sc.nextLine();
                     f1.setEstado(uf);
-                    //Contato
+                    System.out.println("Criar Contato ou atribuir um existente? [S/N]: ");
+                    String criarContato = sc.nextLine().toUpperCase();
+
+                    if(criarContato.equals("S")){
+                        //Contato
+                        Contato c1 = new Contato();
+                        System.out.println("Digite o Nome do Contato do fornecedor: ");
+                        String contato =  sc.nextLine();
+                        c1.setContato(contato);
+                        System.out.println("Digite o Telefone do fornecedor: ");
+                        String telefone =  sc.nextLine();
+                        c1.setTelefone(telefone);
+                        System.out.println("Digite o Email do fornecedor: ");
+                        String email = sc.nextLine();
+                        c1.setEmail(email);
+                        Contato.contatos.add(c1);
+                        f1.setContato(c1);
+                    }else{
+                        System.out.println("Listar contatos existentes e dar a opcao de escolher.");
+                    }
+
+                    Fornecedor.fornecedores.add(f1);
+
+                    f1.listarFornecedores();
+                    break;
+                case 2:
+                    Produto produto = new Produto();
+                    System.out.println("Digite o Codigo do Produto: ");
+                    int codigoProd = Integer.parseInt(sc.nextLine());
+                    produto.setCodigo(codigoProd);
+                    System.out.println("Digite a Descricao do Produto: ");
+                    String desc =  sc.nextLine();
+                    produto.setDescricao(desc);
+
+                    //Terminar
+
+
+
+                    break;
+                case 3:
                     Contato c1 = new Contato();
-                    System.out.println("Digite o Nome Contato do fornecedor: ");
+                    System.out.println("Digite o Nome do Contato do fornecedor: ");
                     String contato =  sc.nextLine();
                     c1.setContato(contato);
                     System.out.println("Digite o Telefone do fornecedor: ");
@@ -49,16 +91,7 @@ public class GerenciarProduto {
                     System.out.println("Digite o Email do fornecedor: ");
                     String email = sc.nextLine();
                     c1.setEmail(email);
-                    f1.setContato(c1);
-                    Fornecedor.fornecedores.add(f1);
-
-                    f1.listarFornecedores();
-                    break;
-                case 2:
-                    System.out.println("Caso 2");
-                    break;
-                case 3:
-                    System.out.println("Caso 3");
+                    Contato.contatos.add(c1);
                     break;
                 case 4:
                     int op2 = 0;
@@ -90,5 +123,20 @@ public class GerenciarProduto {
             }
 
         }while(op!=5);
+    }
+    public Contato cadastrarContato(Scanner sc){
+        //Contato
+        Contato c1 = new Contato();
+        System.out.println("Digite o Nome do Contato do fornecedor: ");
+        String contato =  sc.nextLine();
+        c1.setContato(contato);
+        System.out.println("Digite o Telefone do fornecedor: ");
+        String telefone =  sc.nextLine();
+        c1.setTelefone(telefone);
+        System.out.println("Digite o Email do fornecedor: ");
+        String email = sc.nextLine();
+        c1.setEmail(email);
+        Contato.contatos.add(c1);
+        return c1;
     }
 }

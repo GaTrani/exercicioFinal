@@ -1,5 +1,9 @@
-public class Contato {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class Contato {
+    public static  List<Contato> contatos = new ArrayList<>();
     private String contato;
     private String telefone;
     private String email;
@@ -27,4 +31,6 @@ public class Contato {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

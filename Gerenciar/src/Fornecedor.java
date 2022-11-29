@@ -74,9 +74,11 @@ public class Fornecedor {
     }
 
     public void listarFornecedores(){
-        System.out.println("listando");
+        System.out.println("--------------------------");
         for (Fornecedor f : fornecedores) {
-            System.out.println(f);
+            System.out.println("Codigo:" + f.getCodigo());
+            System.out.println("Razao Social: " + f.getRazaoSocial());
+            System.out.println("--------------------------");
         }
     }
 
